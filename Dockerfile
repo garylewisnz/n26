@@ -16,6 +16,8 @@ FROM alpine
 
 COPY --from=build-env /go/bin/n26 /
 
-RUN apk add --no-cache ca-certificates tzdata
+RUN apk --no-cache add tzdata ca-certificates
+
+ENV TZ Europe/Berlin
 
 ENTRYPOINT [ "/n26" ]
